@@ -1,0 +1,9 @@
+{
+    "vehicles": [
+        {
+            "type": "niga",
+            "capacity": 100,
+            "licensePlate": "121341"
+        }
+    ]
+}

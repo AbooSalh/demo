@@ -1,0 +1,25 @@
+{
+    "trips": [
+        {
+            "numberOfStops": 10,
+            "availableSeats": 100,
+            "price": 1,
+            "destination": "ad",
+            "id": "1",
+            "source": "ad",
+            "type": "12",
+            "assignedDriver": {
+                "password": "dadda",
+                "name": "ad",
+                "id": "212",
+                "type": "driver"
+            },
+            "oneWay": true,
+            "vehicle": {
+                "licensePlate": "121341",
+                "type": "niga",
+                "capacity": 100
+            }
+        }
+    ]
+}
