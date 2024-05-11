@@ -40,5 +40,26 @@
             "type": "niga",
             "capacity": 100
         }
+    },
+    {
+        "numberOfStops": 3,
+        "availableSeats": 100,
+        "price": 20,
+        "destination": "r",
+        "id": "3",
+        "source": "r",
+        "type": "r",
+        "assignedDriver": {
+            "password": "ad",
+            "name": "add",
+            "id": "1",
+            "type": "driver"
+        },
+        "oneWay": true,
+        "vehicle": {
+            "licensePlate": "tt",
+            "type": "bus",
+            "capacity": 100
+        }
     }
 ]}

@@ -329,18 +329,19 @@ public class Main {
         System.out.println("Choose the vehicle:");
         for (int i = 0; i < vehiclesArray.length(); i++) {
             JSONObject vehicleObj = vehiclesArray.getJSONObject(i);
-            System.out.println((i + 1) + ". " + vehicleObj.getString("type"));
+            System.out.println((i + 1) + ". " + vehicleObj.getString("id")+"/"+vehicleObj.getString("type"));
         }
 
         // Allow the user to choose a vehicle
         int vehicleChoice = in.nextInt();
         JSONObject chosenVehicle = vehiclesArray.getJSONObject(vehicleChoice - 1);
+      String ID=chosenVehicle.getString("id");
         String vehicleType = chosenVehicle.getString("type");
         int vehicleCapacity = chosenVehicle.getInt("capacity");
         String vehicleLicensePlate = chosenVehicle.getString("licensePlate");
 
         // Create a new Vehicle object
-        Vehicle vehicle = new Vehicle(vehicleType, vehicleCapacity, vehicleLicensePlate);
+        Vehicle vehicle = new Vehicle(ID,vehicleType, vehicleCapacity, vehicleLicensePlate);
 
         // Create a new Trip object
         Trip newTrip = new Trip(id, type, source, destination, oneWay, numberOfStops, vehicleCapacity, price, driver,
@@ -376,7 +377,11 @@ public class Main {
     }
 
     public static void addVehicle(Manager manager) {
-       Scanner in=new Scanner(System.in);
+      
+        Scanner in=new Scanner(System.in);
+        System.out.println("enter vehcile's id");
+        String u=in.nextLine();
+    
         System.out.println("enter the vehicle's type ");
         System.out.println("Bus, Minibus, Limousine");
         String x = in.nextLine(); // Consume newline
@@ -385,7 +390,7 @@ public class Main {
         in.nextLine(); // Consume newline
         System.out.println("enter vehicle's licensePlate ");
         String q = in.nextLine();
-        Vehicle v1 = new Vehicle(x, z, q);
+        Vehicle v1 = new Vehicle(u,x, z, q);
         manager.addVehicle(v1);
         System.out.println("Vehcile added succesfully!");
     }

@@ -98,7 +98,7 @@ public class Manager extends Employee {
         JSONObject parernt = new JSONObject();
         JSONArray vehicles = JSONFileHandler.loadData("vehicles.json").getJSONArray("vehicles"); // Read existing vehicles from file
         JSONObject vehicleObj = new JSONObject();
-        vehicleObj.put("id", "kafhoiawh");
+        vehicleObj.put("id", getId());
         vehicleObj.put("type", vehicle.getType());
         vehicleObj.put("capacity", vehicle.getCapacity());
         vehicleObj.put("licensePlate", vehicle.getLicensePlate());
