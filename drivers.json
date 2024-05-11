@@ -9,5 +9,16 @@
         "name": "manage",
         "id": "",
         "type": "manager"
+    },
+    {
+        "password": "ad",
+        "name": "ad",
+        "id": "",
+        "type": "manager"
+    },
+    {
+        "password": "r",
+        "name": "r",
+        "id": "10"
     }
 ]}

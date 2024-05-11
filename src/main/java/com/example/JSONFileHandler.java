@@ -28,22 +28,4 @@ class JSONFileHandler {
             e.printStackTrace();
         }
     }
-    // private static JSONArray readJsonArrayFromFile(String filename) throws IOException {
-    //     try (FileReader fileReader = new FileReader(filename)) {
-    //         int data;
-    //         StringBuilder jsonString = new StringBuilder();
-    //         while ((data = fileReader.read()) != -1) {
-    //             jsonString.append((char) data);
-    //         }
-    //         JSONObject jsonObject = new JSONObject(jsonString.toString());
-    //         if (jsonObject.has("trips")) {
-    //             return jsonObject.getJSONArray("trips");
-    //         } else if (jsonObject.has("drivers")) {
-    //             return jsonObject.getJSONArray("drivers");
-    //         }
-    //         return new JSONArray(); // Return empty array if neither "trips" nor "drivers" are found
-    //     }
-    // }
-    
-
 }

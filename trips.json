@@ -1,22 +1,90 @@
-{"trips": [{
-    "numberOfStops": 12213,
-    "availableSeats": 100,
-    "price": 12312,
-    "destination": "fas",
-    "id": "aesf",
-    "source": "asf",
-    "type": "asf",
-    "assignedDriver": {
-        "password": "mm",
-        "name": "driverM",
-        "id": "mm",
-        "type": "driver"
+{"trips": [
+    {
+        "numberOfStops": 12213,
+        "availableSeats": 100,
+        "price": 12312,
+        "destination": "fas",
+        "id": "aesf",
+        "source": "asf",
+        "type": "asf",
+        "assignedDriver": {
+            "password": "mm",
+            "name": "driverM",
+            "id": "mm",
+            "type": "driver"
+        },
+        "oneWay": true,
+        "vehicle": {
+            "licensePlate": "121341",
+            "id": "sss",
+            "type": "niga",
+            "capacity": 100
+        }
     },
-    "oneWay": true,
-    "vehicle": {
-        "licensePlate": "121341",
-        "id": "sss",
-        "type": "niga",
-        "capacity": 100
+    {
+        "numberOfStops": 10,
+        "availableSeats": 1,
+        "price": 100,
+        "destination": "fa",
+        "id": "34",
+        "source": "asfd",
+        "type": "ydsf",
+        "assignedDriver": {
+            "password": "mm",
+            "name": "driverM",
+            "id": "mm",
+            "type": "driver"
+        },
+        "oneWay": true,
+        "vehicle": {
+            "licensePlate": "ter",
+            "id": "",
+            "type": "bus",
+            "capacity": 3
+        }
+    },
+    {
+        "numberOfStops": 10,
+        "availableSeats": 3,
+        "price": 100,
+        "destination": "qr",
+        "id": "3",
+        "source": "rq",
+        "type": "qrw",
+        "assignedDriver": {
+            "password": "ad",
+            "name": "ad",
+            "id": "",
+            "type": "driver"
+        },
+        "oneWay": true,
+        "vehicle": {
+            "licensePlate": "ter",
+            "id": "",
+            "type": "bus",
+            "capacity": 3
+        }
+    },
+    {
+        "numberOfStops": 10,
+        "availableSeats": 3,
+        "price": 100,
+        "destination": "da",
+        "id": "5",
+        "source": "ad",
+        "type": "asd",
+        "assignedDriver": {
+            "password": "r",
+            "name": "r",
+            "id": "10",
+            "type": "driver"
+        },
+        "oneWay": true,
+        "vehicle": {
+            "licensePlate": "ter",
+            "id": "",
+            "type": "bus",
+            "capacity": 3
+        }
     }
-}]}
+]}

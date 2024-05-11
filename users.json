@@ -10,5 +10,29 @@
         "name": "manage",
         "id": "",
         "type": "manager"
+    },
+    {
+        "password": "ad",
+        "name": "ad",
+        "id": "",
+        "type": "manager"
+    },
+    {
+        "password": "ad",
+        "name": "add",
+        "id": "",
+        "type": "passenger"
+    },
+    {
+        "password": "r",
+        "name": "r",
+        "id": "10",
+        "type": "driver"
+    },
+    {
+        "password": "ty",
+        "name": "ty",
+        "id": "",
+        "type": "passenger"
     }
 ]}

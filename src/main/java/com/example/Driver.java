@@ -17,8 +17,8 @@ public class Driver extends Employee {
             JSONObject tripObj = tripsArray.getJSONObject(i);
             if (tripObj.has("assignedDriver")) {
                 JSONObject assignedDriverObj = tripObj.getJSONObject("assignedDriver");
-                String driverId = assignedDriverObj.getString("id");
-                if (driverId.equals(this.getId())) {
+                String driverId = assignedDriverObj.getString("name");
+                if (driverId.equals(this.getName())) {
                     foundTrips = true;
                     String tripId = tripObj.getString("id");
                     String source = tripObj.getString("source");

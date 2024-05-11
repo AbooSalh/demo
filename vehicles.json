@@ -1,16 +1,20 @@
-{
-    "vehicles": [
-        {
-            "licensePlate": "121341",
-            "type": "niga",
-            "id": "sss",
-            "capacity": 100
-        },
-        {
-            "licensePlate": "aksjf",
-            "id": "sss",
-            "type": "bus",
-            "capacity": 100
-        }
-    ]
-}
+{"vehicles": [
+    {
+        "licensePlate": "121341",
+        "id": "sss",
+        "type": "niga",
+        "capacity": 100
+    },
+    {
+        "licensePlate": "aksjf",
+        "id": "sss",
+        "type": "bus",
+        "capacity": 100
+    },
+    {
+        "licensePlate": "ter",
+        "id": "",
+        "type": "bus",
+        "capacity": 3
+    }
+]}
