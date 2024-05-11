@@ -201,7 +201,7 @@ public class Main {
         JSONFileHandler.saveData(usersData, USERS_FILE);
     }
 
-    private static String generateID() {
+    public static String generateID() {
         // Generate ID logic
         return ""; // Implement your ID generation logic here
     }

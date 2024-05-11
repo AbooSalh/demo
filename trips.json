@@ -61,5 +61,27 @@
             "type": "bus",
             "capacity": 100
         }
+    },
+    {
+        "numberOfStops": 12,
+        "availableSeats": 100,
+        "price": 12,
+        "destination": "sgdad",
+        "id": "2121",
+        "source": "asf",
+        "type": "asfas",
+        "assignedDriver": {
+            "password": "ad",
+            "name": "add",
+            "id": "1",
+            "type": "driver"
+        },
+        "oneWay": true,
+        "vehicle": {
+            "licensePlate": "121341",
+            "id": "sss",
+            "type": "niga",
+            "capacity": 100
+        }
     }
 ]}

@@ -29,7 +29,7 @@ public class Manager extends Employee {
         // Read existing trips from file
         JSONObject tripsData = JSONFileHandler.loadData("trips.json");
         JSONArray trips = tripsData.getJSONArray("trips");
-    
+
         // Create a JSON object for the new trip
         JSONObject tripObj = new JSONObject();
         tripObj.put("id", newTrip.getId());
@@ -46,26 +46,26 @@ public class Manager extends Employee {
         } else {
             tripObj.put("vehicle", "");
         }
-    
+
         // Add the new trip to the existing trips
         trips.put(tripObj);
-    
+
         // Write the updated trips back to the file
         tripsData.put("trips", trips);
         JSONFileHandler.saveData(tripsData, "trips.json");
     }
-    
+
     public void deleteTrip(String tripId) {
         JSONArray trips = JSONFileHandler.loadData("trips.json").getJSONArray("trips");
         // Read existing trips from file
-    
+
         if (trips.length() == 0) {
             System.out.println("No trips found.");
             return;
         }
-    
+
         JSONArray updatedTrips = new JSONArray();
-    
+
         for (int i = 0; i < trips.length(); i++) {
             JSONObject tripObj = trips.getJSONObject(i);
             if (!tripObj.getString("id").equals(tripId)) {
@@ -73,15 +73,14 @@ public class Manager extends Employee {
                 updatedTrips.put(tripObj);
             }
         }
-    
+
         // Convert the JSONArray to a JSONObject
         JSONObject data = new JSONObject();
         data.put("trips", updatedTrips);
-    
+
         // Save the updated trips back to the file
         JSONFileHandler.saveData(data, "trips.json");
     }
-    
 
     public void addDriver(Driver driver) {
         JSONObject parernt = new JSONObject();
@@ -94,11 +93,13 @@ public class Manager extends Employee {
         parernt.put("drivers", drivers);
         JSONFileHandler.saveData(parernt, "drivers.json");
     }
+
     public void addVehicle(Vehicle vehicle) {
         JSONObject parernt = new JSONObject();
-        JSONArray vehicles = JSONFileHandler.loadData("vehicles.json").getJSONArray("vehicles"); // Read existing vehicles from file
+        JSONArray vehicles = JSONFileHandler.loadData("vehicles.json").getJSONArray("vehicles"); // Read existing
+                                                                                                 // vehicles from file
         JSONObject vehicleObj = new JSONObject();
-        vehicleObj.put("id", getId());
+        vehicleObj.put("id", Main.generateID());
         vehicleObj.put("type", vehicle.getType());
         vehicleObj.put("capacity", vehicle.getCapacity());
         vehicleObj.put("licensePlate", vehicle.getLicensePlate());
@@ -106,6 +107,7 @@ public class Manager extends Employee {
         parernt.put("vehicles", vehicles);
         JSONFileHandler.saveData(parernt, "vehicles.json");
     }
+
     // Method to read drivers from JSON file
     private JSONArray readDriversFromFile() {
         JSONObject obj = JSONFileHandler.loadData("drivers.json");
