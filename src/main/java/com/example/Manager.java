@@ -27,8 +27,9 @@ public class Manager extends Employee {
 
     public void addTrip(Driver assignedDriver, Vehicle vehicle, Trip newTrip) {
         // Read existing trips from file
-        JSONArray trips = readTripsFromFile();
-
+        JSONObject tripsData = JSONFileHandler.loadData("trips.json");
+        JSONArray trips = tripsData.getJSONArray("trips");
+    
         // Create a JSON object for the new trip
         JSONObject tripObj = new JSONObject();
         tripObj.put("id", newTrip.getId());
@@ -45,45 +46,26 @@ public class Manager extends Employee {
         } else {
             tripObj.put("vehicle", "");
         }
-
+    
         // Add the new trip to the existing trips
         trips.put(tripObj);
-
+    
         // Write the updated trips back to the file
-        writeTripsToFile(trips);
+        tripsData.put("trips", trips);
+        JSONFileHandler.saveData(tripsData, "trips.json");
     }
-
-    // Method to read trips from JSON file
-    private JSONArray readTripsFromFile() {
-        JSONArray trips = new JSONArray();
-        try (FileReader fileReader = new FileReader("trips.json")) {
-            int data;
-            StringBuilder jsonString = new StringBuilder();
-            while ((data = fileReader.read()) != -1) {
-                jsonString.append((char) data);
-            }
-            trips = new JSONArray(jsonString.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return trips;
-    }
-
-    // Method to write trips to JSON file
-    private void writeTripsToFile(JSONArray trips) {
-        try (FileWriter fileWriter = new FileWriter("trips.json")) {
-            fileWriter.write(trips.toString());
-            System.out.println("Trips data has been updated.");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    // Method to delete a trip by its ID
+    
     public void deleteTrip(String tripId) {
-        JSONArray trips = readTripsFromFile(); // Read existing trips from file
+        JSONArray trips = JSONFileHandler.loadData("trips.json").getJSONArray("trips");
+        // Read existing trips from file
+    
+        if (trips.length() == 0) {
+            System.out.println("No trips found.");
+            return;
+        }
+    
         JSONArray updatedTrips = new JSONArray();
-
+    
         for (int i = 0; i < trips.length(); i++) {
             JSONObject tripObj = trips.getJSONObject(i);
             if (!tripObj.getString("id").equals(tripId)) {
@@ -91,9 +73,15 @@ public class Manager extends Employee {
                 updatedTrips.put(tripObj);
             }
         }
-
-        writeTripsToFile(updatedTrips); // Write the updated trips back to the file
+    
+        // Convert the JSONArray to a JSONObject
+        JSONObject data = new JSONObject();
+        data.put("trips", updatedTrips);
+    
+        // Save the updated trips back to the file
+        JSONFileHandler.saveData(data, "trips.json");
     }
+    
 
     public void addDriver(Driver driver) {
         JSONObject parernt = new JSONObject();

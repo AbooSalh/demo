@@ -1,21 +1,44 @@
-{"trips": [{
-    "numberOfStops": 10,
-    "availableSeats": 97,
-    "price": 1,
-    "destination": "ad",
-    "id": "1",
-    "source": "ad",
-    "type": "12",
-    "assignedDriver": {
-        "password": "dadda",
-        "name": "ad",
-        "id": "212",
-        "type": "driver"
+{"trips": [
+    {
+        "numberOfStops": 10,
+        "availableSeats": 97,
+        "price": 1,
+        "destination": "ad",
+        "id": "1",
+        "source": "ad",
+        "type": "12",
+        "assignedDriver": {
+            "password": "dadda",
+            "name": "ad",
+            "id": "212",
+            "type": "driver"
+        },
+        "oneWay": true,
+        "vehicle": {
+            "licensePlate": "121341",
+            "type": "niga",
+            "capacity": 100
+        }
     },
-    "oneWay": true,
-    "vehicle": {
-        "licensePlate": "121341",
-        "type": "niga",
-        "capacity": 100
+    {
+        "numberOfStops": 2,
+        "availableSeats": 100,
+        "price": 23,
+        "destination": "e",
+        "id": "2",
+        "source": "e",
+        "type": "e",
+        "assignedDriver": {
+            "password": "ad",
+            "name": "add",
+            "id": "1",
+            "type": "driver"
+        },
+        "oneWay": true,
+        "vehicle": {
+            "licensePlate": "121341",
+            "type": "niga",
+            "capacity": 100
+        }
     }
-}]}
+]}

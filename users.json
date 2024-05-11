@@ -1,38 +1,6 @@
-{"users": [
-    {
-        "password": "ad",
-        "name": "ad",
-        "id": "",
-        "type": "driver"
-    },
-    {
-        "password": "ad",
-        "name": "adad",
-        "id": "",
-        "type": "driver"
-    },
-    {
-        "password": "ad",
-        "name": "add",
-        "id": "",
-        "type": "manager"
-    },
-    {
-        "password": "da",
-        "name": "adadad",
-        "id": "",
-        "type": "manager"
-    },
-    {
-        "password": "FSAFAS",
-        "name": "ADFAS",
-        "id": "",
-        "type": "passenger"
-    },
-    {
-        "password": "rr",
-        "name": "rr",
-        "id": "",
-        "type": "passenger"
-    }
-]}
+{"users": [{
+    "password": "ad",
+    "name": "ad",
+    "id": "",
+    "type": "manager"
+}]}

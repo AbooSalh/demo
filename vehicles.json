@@ -1,9 +1,13 @@
-{
-    "vehicles": [
-        {
-            "type": "niga",
-            "capacity": 100,
-            "licensePlate": "121341"
-        }
-    ]
-}
+{"vehicles": [
+    {
+        "licensePlate": "121341",
+        "type": "niga",
+        "capacity": 100
+    },
+    {
+        "licensePlate": "tt",
+        "id": "kafhoiawh",
+        "type": "bus",
+        "capacity": 100
+    }
+]}

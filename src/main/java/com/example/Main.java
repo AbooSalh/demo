@@ -281,7 +281,7 @@ public class Main {
         // Add the new driver using the Manager's addDriver method
         manager.addDriver(newDriver);
         System.out.println("Driver added successfully.");
-        
+
     }
 
     private static void addTrip(Manager manager) {
@@ -306,7 +306,7 @@ public class Main {
         JSONArray driversArray = (JSONArray) driversData.get("drivers");
         System.out.println(driversArray.toString());
         // Display the list of drivers to the user
-        System.out.println("Choose the driver:");
+        System.out.println("Choose the driver: ");
         for (int i = 0; i < driversArray.length(); i++) {
             JSONObject driverObj = driversArray.getJSONObject(i);
             System.out.println((i + 1) + ". " + driverObj.getString("name"));
