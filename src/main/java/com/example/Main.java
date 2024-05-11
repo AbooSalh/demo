@@ -11,18 +11,17 @@ public class Main {
     private static List<User> loadedUsers = new ArrayList<>();
 
     public static void main(String[] args) {
-
         loadUsersFromJSON();
         // scanner
         Scanner scanner = new Scanner(System.in);
-        System.out.println("hello world");
+        System.out.println("welcome to the system");
         while (true) {
             System.out.println("1. Log in");
             System.out.println("2. Sign up");
             System.out.println("3. Exit");
             System.out.print("Choose an option: ");
             int option = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
             switch (option) {
                 case 1:
                     login(scanner);
@@ -35,7 +34,7 @@ public class Main {
                     System.exit(0);
                     break;
                 default:
-                    System.out.println("Invalid option. Please try again.");
+                    System.out.println("Invalid option");
             }
             break;
         }
@@ -45,7 +44,6 @@ public class Main {
         JSONObject loadedUsersData = JSONFileHandler.loadData(USERS_FILE);
         if (loadedUsersData != null) {
             System.out.println("Loaded JSON data: " + loadedUsersData.toString());
-            // Debugging
             JSONArray loadedUsersArray = loadedUsersData.getJSONArray("users");
             for (int i = 0; i < loadedUsersArray.length(); i++) {
                 JSONObject userObject = loadedUsersArray.getJSONObject(i);
@@ -53,8 +51,6 @@ public class Main {
                 String id = userObject.getString("id");
                 String type = userObject.getString("type");
                 String password = userObject.getString("password");
-                // System.out.println("Loaded user: " + name); // Debugging
-                // Add logic to create appropriate User subclass instance based on type
                 if (type.equals("passenger")) {
                     loadedUsers.add(new Passenger(name, id, password));
                 } else if (type.equals("driver")) {
@@ -64,7 +60,7 @@ public class Main {
                 }
             }
         } else {
-            System.out.println("Failed to load users from file.");
+            System.out.println("there is problem");
         }
     }
 
@@ -77,7 +73,6 @@ public class Main {
         for (User user : loadedUsers) {
             if (user.getName().trim().toLowerCase().equals(username) && user.getPassword().equals(password)) {
                 System.out.println("Login successful!");
-                // Access methods based on user type
                 if (user instanceof Passenger) {
                     // Passenger methods
                     handlePassenger((Passenger) user, scanner);
@@ -88,10 +83,10 @@ public class Main {
                     // Manager methods
                     handleManager((Manager) user);
                 }
-                return; // Exit the loop after successful login
+                return;
             }
         }
-        System.out.println("Invalid username or password. Please try again.");
+        System.out.println("Invalid username or password");
     }
 
     private static void signUp(Scanner scanner) {
@@ -99,7 +94,7 @@ public class Main {
         System.out.println("1. Passenger");
         System.out.println("2. Employee");
         int userTypeChoice = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine();
 
         switch (userTypeChoice) {
             case 1:
@@ -109,8 +104,8 @@ public class Main {
                 signUpEmployee(scanner);
                 break;
             default:
-                System.out.println("Invalid choice. Please try again.");
-                signUp(scanner); // Restart sign-up process
+                System.out.println("Invalid choice");
+                signUp(scanner); // resign
                 break;
         }
     }
@@ -126,7 +121,7 @@ public class Main {
             boolean usernameExists = false;
             for (User user : loadedUsers) {
                 if (user.getName().equals(username)) {
-                    System.out.println("Username already exists. Please choose a different one.");
+                    System.out.println("Username already exists");
                     usernameExists = true;
                     break;
                 }
@@ -135,12 +130,11 @@ public class Main {
             if (!usernameExists) {
                 User newUser = new Passenger(username, generateID(), password);
                 loadedUsers.add(newUser);
-
                 // Update JSON file
                 updateUsersJSON();
                 System.out.println("User registration successful!");
                 handlePassenger((Passenger) newUser, scanner);
-                break; // Exit the loop if username is unique
+                break; 
             }
         }
     }
@@ -182,11 +176,15 @@ public class Main {
                     System.out.println("Invalid choice. Please try again.");
                     continue;
                 }
-
                 loadedUsers.add(newUser);
-                // Update JSON file
+                JSONArray loadedDrivers = JSONFileHandler.loadData("drivers.json").getJSONArray("drivers");
+                loadedDrivers.put(newUser.toJSON());
+                System.out.println(loadedDrivers.toString());
+                JSONObject parent = new JSONObject();
+                parent.put("drivers", loadedDrivers);
+                JSONFileHandler.saveData(parent, "drivers.json");
                 updateUsersJSON();
-                return newUser; // Exit the loop and return newUser if username is unique
+                return newUser; // Exit the loop 
             }
         }
     }
@@ -203,7 +201,7 @@ public class Main {
 
     public static String generateID() {
         // Generate ID logic
-        return ""; // Implement your ID generation logic here
+        return "";
     }
 
     private static void handlePassenger(Passenger passenger, Scanner scanner) {
@@ -212,13 +210,13 @@ public class Main {
         System.out.println("2.Diplay booked trips");
         System.out.println("3.Display Profile");
         int option = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine(); 
         switch (option) {
             case 1:
                 passenger.viewAvailableTrips();
                 break;
             case 2:
-                // views the booked trips and gives the user the option to cancel the booking
+                // views the booked trips
                 passenger.viewBookedTrips();
                 break;
             case 3:
@@ -242,7 +240,7 @@ public class Main {
         System.out.println("5. Generate report");
         Scanner in = new Scanner(System.in);
         int choice = in.nextInt();
-        in.nextLine(); // Consume newline
+        in.nextLine();
 
         switch (choice) {
             case 1:
@@ -254,7 +252,7 @@ public class Main {
             case 3:
                 removeTrip(manager);
                 break;
-                case 4:
+            case 4:
                 addVehicle(manager);
                 break;
             case 5:
@@ -278,7 +276,7 @@ public class Main {
         // Create a new Driver object
         Driver newDriver = new Driver(name, id, password);
 
-        // Add the new driver using the Manager's addDriver method
+        // Add the new driver
         manager.addDriver(newDriver);
         System.out.println("Driver added successfully.");
 
@@ -301,53 +299,48 @@ public class Main {
         System.out.println("Enter price:");
         double price = in.nextDouble();
 
-        // Load the data of drivers from the JSON file
+        // Load the data of drivers
         JSONObject driversData = JSONFileHandler.loadData("drivers.json");
         JSONArray driversArray = (JSONArray) driversData.get("drivers");
         System.out.println(driversArray.toString());
-        // Display the list of drivers to the user
+        // Display drivers 
         System.out.println("Choose the driver: ");
         for (int i = 0; i < driversArray.length(); i++) {
             JSONObject driverObj = driversArray.getJSONObject(i);
             System.out.println((i + 1) + ". " + driverObj.getString("name"));
         }
-
-        // Allow the user to choose a driver
         int driverChoice = in.nextInt();
         JSONObject chosenDriver = driversArray.getJSONObject(driverChoice - 1);
         String driverName = chosenDriver.getString("name");
-        // Now you can use this chosen driver in your Trip object creation
-        // For example, you can pass it as a parameter to the Trip constructor
         Driver driver = new Driver(driverName, chosenDriver.getString("id"), chosenDriver.getString("password"));
 
-        // Load the data of vehicles from the JSON file
-
+        // Load vehicles
         JSONObject vehiclesData = JSONFileHandler.loadData("vehicles.json");
         JSONArray vehiclesArray = vehiclesData.getJSONArray("vehicles");
 
-        // Display the list of vehicles to the user
+        // Display vehicles
         System.out.println("Choose the vehicle:");
         for (int i = 0; i < vehiclesArray.length(); i++) {
             JSONObject vehicleObj = vehiclesArray.getJSONObject(i);
-            System.out.println((i + 1) + ". " + vehicleObj.getString("id")+"/"+vehicleObj.getString("type"));
+            System.out.println((i + 1) + ". " + vehicleObj.getString("id") + "/" + vehicleObj.getString("type"));
         }
 
         // Allow the user to choose a vehicle
         int vehicleChoice = in.nextInt();
         JSONObject chosenVehicle = vehiclesArray.getJSONObject(vehicleChoice - 1);
-      String ID=chosenVehicle.getString("id");
+        String ID = chosenVehicle.getString("id");
         String vehicleType = chosenVehicle.getString("type");
         int vehicleCapacity = chosenVehicle.getInt("capacity");
         String vehicleLicensePlate = chosenVehicle.getString("licensePlate");
 
         // Create a new Vehicle object
-        Vehicle vehicle = new Vehicle(ID,vehicleType, vehicleCapacity, vehicleLicensePlate);
+        Vehicle vehicle = new Vehicle(ID, vehicleType, vehicleCapacity, vehicleLicensePlate);
 
         // Create a new Trip object
         Trip newTrip = new Trip(id, type, source, destination, oneWay, numberOfStops, vehicleCapacity, price, driver,
                 vehicle);
 
-        // Add the new trip using the Manager's addTrip method
+        // Add the new trip using addTrip method
         manager.addTrip(driver, vehicle, newTrip);
         System.out.println("Trip added successfully.");
     }
@@ -377,24 +370,24 @@ public class Main {
     }
 
     public static void addVehicle(Manager manager) {
-      
-        Scanner in=new Scanner(System.in);
+
+        Scanner in = new Scanner(System.in);
         System.out.println("enter vehcile's id");
-        String u=in.nextLine();
-    
+        String u = in.nextLine();
+
         System.out.println("enter the vehicle's type ");
         System.out.println("Bus, Minibus, Limousine");
-        String x = in.nextLine(); // Consume newline
+        String x = in.nextLine(); // newline
         System.out.println("enter vehicle's capacity");
         int z = in.nextInt();
-        in.nextLine(); // Consume newline
+        in.nextLine(); // newline
         System.out.println("enter vehicle's licensePlate ");
         String q = in.nextLine();
-        Vehicle v1 = new Vehicle(u,x, z, q);
+        Vehicle v1 = new Vehicle(u, x, z, q);
         manager.addVehicle(v1);
         System.out.println("Vehcile added succesfully!");
     }
-    
+
     private static void handleDriver(Driver driver) {
 
         System.out.println("Welcome back");

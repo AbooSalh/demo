@@ -1,14 +1,8 @@
 package com.example;
-
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
-import com.fasterxml.jackson.core.JsonParser;
-
-import java.util.ArrayList;
 
 public class Manager extends Employee {
     private Driver assignedDriver;
@@ -91,9 +85,11 @@ public class Manager extends Employee {
         driverObj.put("password", driver.getPassword());
         drivers.put(driverObj); // Add the new driver to the array
         parernt.put("drivers", drivers);
+        System.out.println(parernt.toString());
         JSONFileHandler.saveData(parernt, "drivers.json");
         JSONObject parernt2 = new JSONObject();
-        JSONArray drivers2 = JSONFileHandler.loadData("users.json").getJSONArray("users"); // Read existing drivers from file
+        JSONArray drivers2 = JSONFileHandler.loadData("users.json").getJSONArray("users"); // Read existing drivers from
+                                                                                           // file
         JSONObject driverObj2 = new JSONObject();
         driverObj2.put("id", driver.getId());
         driverObj2.put("name", driver.getName());
@@ -106,8 +102,7 @@ public class Manager extends Employee {
 
     public void addVehicle(Vehicle vehicle) {
         JSONObject parernt = new JSONObject();
-        JSONArray vehicles = JSONFileHandler.loadData("vehicles.json").getJSONArray("vehicles"); // Read existing
-                                                                                                 // vehicles from file
+        JSONArray vehicles = JSONFileHandler.loadData("vehicles.json").getJSONArray("vehicles");
         JSONObject vehicleObj = new JSONObject();
         vehicleObj.put("id", Main.generateID());
         vehicleObj.put("type", vehicle.getType());
@@ -122,16 +117,6 @@ public class Manager extends Employee {
     private JSONArray readDriversFromFile() {
         JSONObject obj = JSONFileHandler.loadData("drivers.json");
         return obj.getJSONArray("drivers");
-    }
-
-    // Method to write drivers to JSON file
-    private void writeDriversToFile(JSONArray drivers) {
-        try (FileWriter fileWriter = new FileWriter("drivers.json")) {
-            fileWriter.write(drivers.toString());
-            System.out.println("Drivers data has been updated.");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public void reportDrivers() {

@@ -1,32 +1,14 @@
 {"users": [
     {
-        "password": "ad",
-        "name": "ad",
-        "id": "",
-        "type": "manager"
-    },
-    {
-        "password": "asfas",
-        "name": "asfa",
-        "id": "asfas",
-        "type": "driver"
-    },
-    {
         "password": "pass",
-        "name": "pass",
+        "name": "passenger",
         "id": "",
         "type": "passenger"
     },
     {
-        "password": "asf",
-        "name": "afs",
-        "id": "as",
-        "type": "driver"
-    },
-    {
-        "password": "yy",
-        "name": "yyu",
+        "password": "manage",
+        "name": "manage",
         "id": "",
-        "type": "driver"
+        "type": "manager"
     }
 ]}

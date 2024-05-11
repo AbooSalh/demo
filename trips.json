@@ -1,87 +1,22 @@
-{"trips": [
-    {
-        "numberOfStops": 10,
-        "availableSeats": 96,
-        "price": 1,
-        "destination": "ad",
-        "id": "1",
-        "source": "ad",
-        "type": "12",
-        "assignedDriver": {
-            "password": "dadda",
-            "name": "ad",
-            "id": "212",
-            "type": "driver"
-        },
-        "oneWay": true,
-        "vehicle": {
-            "licensePlate": "121341",
-            "type": "niga",
-            "capacity": 100
-        }
+{"trips": [{
+    "numberOfStops": 12213,
+    "availableSeats": 100,
+    "price": 12312,
+    "destination": "fas",
+    "id": "aesf",
+    "source": "asf",
+    "type": "asf",
+    "assignedDriver": {
+        "password": "mm",
+        "name": "driverM",
+        "id": "mm",
+        "type": "driver"
     },
-    {
-        "numberOfStops": 2,
-        "availableSeats": 100,
-        "price": 23,
-        "destination": "e",
-        "id": "2",
-        "source": "e",
-        "type": "e",
-        "assignedDriver": {
-            "password": "ad",
-            "name": "add",
-            "id": "1",
-            "type": "driver"
-        },
-        "oneWay": true,
-        "vehicle": {
-            "licensePlate": "121341",
-            "type": "niga",
-            "capacity": 100
-        }
-    },
-    {
-        "numberOfStops": 3,
-        "availableSeats": 100,
-        "price": 20,
-        "destination": "r",
-        "id": "3",
-        "source": "r",
-        "type": "r",
-        "assignedDriver": {
-            "password": "ad",
-            "name": "add",
-            "id": "1",
-            "type": "driver"
-        },
-        "oneWay": true,
-        "vehicle": {
-            "licensePlate": "tt",
-            "type": "bus",
-            "capacity": 100
-        }
-    },
-    {
-        "numberOfStops": 12,
-        "availableSeats": 100,
-        "price": 12,
-        "destination": "sgdad",
-        "id": "2121",
-        "source": "asf",
-        "type": "asfas",
-        "assignedDriver": {
-            "password": "ad",
-            "name": "add",
-            "id": "1",
-            "type": "driver"
-        },
-        "oneWay": true,
-        "vehicle": {
-            "licensePlate": "121341",
-            "id": "sss",
-            "type": "niga",
-            "capacity": 100
-        }
+    "oneWay": true,
+    "vehicle": {
+        "licensePlate": "121341",
+        "id": "sss",
+        "type": "niga",
+        "capacity": 100
     }
-]}
+}]}

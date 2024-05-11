@@ -1,47 +1,13 @@
 {"drivers": [
     {
-        "password": "ad",
-        "name": "add",
-        "id": "1"
+        "password": "mm",
+        "name": "driverM",
+        "id": "mm"
     },
     {
-        "password": "w",
-        "name": "w",
-        "id": "2"
-    },
-    {
-        "password": "akfahnsjf",
-        "name": "ahmedd",
-        "id": "asdas"
-    },
-    {
-        "password": "afs",
-        "name": "asf",
-        "id": "asf"
-    },
-    {
-        "password": "asf",
-        "name": "asd",
-        "id": "asf"
-    },
-    {
-        "password": "saf",
-        "name": "sd",
-        "id": "asf"
-    },
-    {
-        "password": "asfasfas",
-        "name": "aasfasfa",
-        "id": "asfasf"
-    },
-    {
-        "password": "asfas",
-        "name": "asfa",
-        "id": "asfas"
-    },
-    {
-        "password": "asf",
-        "name": "afs",
-        "id": "as"
+        "password": "manage",
+        "name": "manage",
+        "id": "",
+        "type": "manager"
     }
 ]}
