@@ -28,7 +28,7 @@ public class Manager extends Employee {
     public void addTrip(Driver assignedDriver, Vehicle vehicle, Trip newTrip) {
         // Read existing trips from file
         JSONArray trips = readTripsFromFile();
-    
+
         // Create a JSON object for the new trip
         JSONObject tripObj = new JSONObject();
         tripObj.put("id", newTrip.getId());
@@ -45,14 +45,14 @@ public class Manager extends Employee {
         } else {
             tripObj.put("vehicle", "");
         }
-    
+
         // Add the new trip to the existing trips
         trips.put(tripObj);
-    
+
         // Write the updated trips back to the file
         writeTripsToFile(trips);
     }
-    
+
     // Method to read trips from JSON file
     private JSONArray readTripsFromFile() {
         JSONArray trips = new JSONArray();
@@ -68,7 +68,7 @@ public class Manager extends Employee {
         }
         return trips;
     }
-    
+
     // Method to write trips to JSON file
     private void writeTripsToFile(JSONArray trips) {
         try (FileWriter fileWriter = new FileWriter("trips.json")) {
@@ -78,7 +78,6 @@ public class Manager extends Employee {
             e.printStackTrace();
         }
     }
-    
 
     // Method to delete a trip by its ID
     public void deleteTrip(String tripId) {
@@ -97,35 +96,24 @@ public class Manager extends Employee {
     }
 
     public void addDriver(Driver driver) {
-       JSONObject parernt=new JSONObject();
-       JSONArray drivers = readDriversFromFile(); // Read existing drivers from file
-       JSONObject driverObj = new JSONObject();
-       driverObj.put("id", driver.getId());
-       driverObj.put("name", driver.getName());
-       driverObj.put("password", driver.getPassword());
-       drivers.put(driverObj); // Add the new driver to the array
-       parernt.put("drivers", drivers);
+        JSONObject parernt = new JSONObject();
+        JSONArray drivers = readDriversFromFile(); // Read existing drivers from file
+        JSONObject driverObj = new JSONObject();
+        driverObj.put("id", driver.getId());
+        driverObj.put("name", driver.getName());
+        driverObj.put("password", driver.getPassword());
+        drivers.put(driverObj); // Add the new driver to the array
+        parernt.put("drivers", drivers);
 
-    
         writeDriversToFile(drivers); // Write the updated drivers back to the file
     }
-    
+
     // Method to read drivers from JSON file
     private JSONArray readDriversFromFile() {
-        JSONArray drivers = new JSONArray();
-        try (FileReader fileReader = new FileReader("drivers.json")) {
-            int data;
-            StringBuilder jsonString = new StringBuilder();
-            while ((data = fileReader.read()) != -1) {
-                jsonString.append((char) data);
-            }
-            drivers = new JSONArray(jsonString.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return drivers;
+        JSONObject obj = JSONFileHandler.loadData("drivers.json");
+        return obj.getJSONArray("drivers");
     }
-    
+
     // Method to write drivers to JSON file
     private void writeDriversToFile(JSONArray drivers) {
         try (FileWriter fileWriter = new FileWriter("drivers.json")) {
@@ -136,12 +124,12 @@ public class Manager extends Employee {
         }
     }
 
-    public void reportDrivers(){
-       System.out.println("Drivers");
+    public void reportDrivers() {
+        System.out.println("Drivers");
         JSONFileHandler handler = new JSONFileHandler();
         JSONObject data = handler.loadData("drivers.json");
         System.out.println(data.toString());
         System.out.println(data.getJSONArray("drivers"));
     }
-    
+
 }
