@@ -1,6 +1,14 @@
-{"users": [{
-    "password": "ad",
-    "name": "ad",
-    "id": "",
-    "type": "manager"
-}]}
+{"users": [
+    {
+        "password": "ad",
+        "name": "ad",
+        "id": "",
+        "type": "manager"
+    },
+    {
+        "password": "asfas",
+        "name": "asfa",
+        "id": "asfas",
+        "type": "driver"
+    }
+]}

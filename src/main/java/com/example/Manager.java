@@ -92,6 +92,16 @@ public class Manager extends Employee {
         drivers.put(driverObj); // Add the new driver to the array
         parernt.put("drivers", drivers);
         JSONFileHandler.saveData(parernt, "drivers.json");
+        JSONObject parernt2 = new JSONObject();
+        JSONArray drivers2 = JSONFileHandler.loadData("users.json").getJSONArray("users"); // Read existing drivers from file
+        JSONObject driverObj2 = new JSONObject();
+        driverObj2.put("id", driver.getId());
+        driverObj2.put("name", driver.getName());
+        driverObj2.put("password", driver.getPassword());
+        driverObj2.put("type", "driver");
+        drivers2.put(driverObj2); // Add the new driver to the array
+        parernt2.put("users", drivers2);
+        JSONFileHandler.saveData(parernt2, "users.json");
     }
 
     public void addVehicle(Vehicle vehicle) {
