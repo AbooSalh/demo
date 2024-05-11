@@ -1,7 +1,7 @@
 {"trips": [
     {
         "numberOfStops": 10,
-        "availableSeats": 97,
+        "availableSeats": 96,
         "price": 1,
         "destination": "ad",
         "id": "1",

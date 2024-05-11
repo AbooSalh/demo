@@ -10,5 +10,17 @@
         "name": "asfa",
         "id": "asfas",
         "type": "driver"
+    },
+    {
+        "password": "pass",
+        "name": "pass",
+        "id": "",
+        "type": "passenger"
+    },
+    {
+        "password": "asf",
+        "name": "afs",
+        "id": "as",
+        "type": "driver"
     }
 ]}

@@ -36,12 +36,10 @@ class Passenger extends User {
   
     public void viewAvailableTrips() {
         JSONObject tripsData = JSONFileHandler.loadData("trips.json");
-   
         if (tripsData.length() == 0) {
             System.out.println("Currently, there are no available trips. Stay tuned for exciting journeys ahead!");
             return;
         }
-   
         JSONArray tripsArray = tripsData.getJSONArray("trips");
         System.out.println("Available Trips:");
         for (int i = 0; i < tripsArray.length(); i++) {
@@ -83,7 +81,7 @@ class Passenger extends User {
                 break;
             }
         }
-   
+
         // Save the updated trips data back to the JSON file
         JSONFileHandler.saveData(tripsData, "trips.json");
     }
