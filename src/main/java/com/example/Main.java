@@ -238,7 +238,8 @@ public class Main {
         System.out.println("1. Add Driver");
         System.out.println("2. Add Trip");
         System.out.println("3. Remove Trip");
-        System.out.println("4. Generate report");
+        System.out.println("4. Add vehcile");
+        System.out.println("5. Generate report");
         Scanner in = new Scanner(System.in);
         int choice = in.nextInt();
         in.nextLine(); // Consume newline
@@ -253,7 +254,10 @@ public class Main {
             case 3:
                 removeTrip(manager);
                 break;
-            case 4:
+                case 4:
+                addVehicle(manager);
+                break;
+            case 5:
                 manager.reportDrivers();
                 break;
             default:
@@ -277,6 +281,7 @@ public class Main {
         // Add the new driver using the Manager's addDriver method
         manager.addDriver(newDriver);
         System.out.println("Driver added successfully.");
+        
     }
 
     private static void addTrip(Manager manager) {
@@ -370,6 +375,21 @@ public class Main {
         System.out.println("Trip removed successfully.");
     }
 
+    public static void addVehicle(Manager manager) {
+       Scanner in=new Scanner(System.in);
+        System.out.println("enter the vehicle's type ");
+        System.out.println("Bus, Minibus, Limousine");
+        String x = in.nextLine(); // Consume newline
+        System.out.println("enter vehicle's capacity");
+        int z = in.nextInt();
+        in.nextLine(); // Consume newline
+        System.out.println("enter vehicle's licensePlate ");
+        String q = in.nextLine();
+        Vehicle v1 = new Vehicle(x, z, q);
+        manager.addVehicle(v1);
+        System.out.println("Vehcile added succesfully!");
+    }
+    
     private static void handleDriver(Driver driver) {
 
         System.out.println("Welcome back");
